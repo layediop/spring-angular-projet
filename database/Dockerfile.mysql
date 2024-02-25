@@ -1,0 +1,15 @@
+# Utiliser l'image officielle MySQL comme base
+FROM mysql:latest
+
+# Définir les variables d'environnement pour le démarrage automatique de la base de données
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_DATABASE=diop
+ENV MYSQL_USER=root
+ENV MYSQL_PASSWORD=root
+
+# Copiez le script SQL d'initialisation dans le conteneur
+COPY init.sql /docker-entrypoint-initdb.d/
+
+# Exposez le port sur lequel MySQL écoute
+EXPOSE 3306
+

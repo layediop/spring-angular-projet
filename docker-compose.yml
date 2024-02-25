@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  # Backend service
+  backend:
+    build:
+      context: ./spring-boot-server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+
+  # Frontend service
+  frontend:
+    build:
+      context: ./angular-15-client
+      dockerfile: Dockerfile
+    ports:
+      - "80:81"
+
+  # MySQL service
+  database:
+    build:
+      context: ./database
+      dockerfile: Dockerfile.mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: diop
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
