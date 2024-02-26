@@ -1,3 +1,6 @@
+# Voici le git du projet que j'ai dockerisé
+https://github.com/layediop/spring-angular-projet
+
 # Spring Boot + Angular 15 + MySQL CRUD example
 
 Full-stack Angular 15 + Spring Boot + MySQL CRUD Tutorial Application in that:
